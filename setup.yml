@@ -1,0 +1,5 @@
+- name: Setup my environment
+  hosts: local
+  roles: 
+    - {role: homebrew}
+    - {role: terminal-config}
