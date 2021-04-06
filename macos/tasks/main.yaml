@@ -4,11 +4,9 @@
     msg: Hello macOS!
 
 - name: Install Homebrew stuff
-  homebrew:
+  community.general.homebrew:
     name: "{{ item }}"
     state: present
-    update_homebrew: yes
-    upgrade_all: yes
   loop:
     - minikube
     - aws-iam-authenticator

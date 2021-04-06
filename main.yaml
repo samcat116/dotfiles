@@ -1,10 +1,9 @@
 ---
-- hosts: localhost
+- name: Install Dotfiles
+  hosts: all
   connection: local
   roles:
     - role: macos
       when: ansible_os_family == 'Darwin'
-    - role: windows
-      when: ansible_os_family == 'Windows'
     - role: linux
       when:   ansible_os_family == 'Linux'
