@@ -1,0 +1,28 @@
+---
+- name: Hello macOS
+  debug:
+    msg: Hello macOS!
+
+- name: Install Homebrew stuff
+  homebrew:
+    name: "{{ item }}"
+    state: present
+    update_homebrew: yes
+    upgrade_all: yes
+  loop:
+    - minikube
+    - aws-iam-authenticator
+    - helm
+    - terraform
+    - yarn
+    - awscli
+    - node
+    - thefuck
+    - zsh
+    - eksctl
+    - tmux
+    - zsh-completions
+
+
+
+
