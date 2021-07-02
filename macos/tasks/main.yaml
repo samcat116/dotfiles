@@ -20,6 +20,8 @@
     - eksctl
     - tmux
     - zsh-completions
+    - romkatv/powerlevel10k/powerlevel10k
+
 
 
 

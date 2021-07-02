@@ -3,6 +3,7 @@
   hosts: all
   connection: local
   roles:
+    - role: common
     - role: macos
       when: ansible_os_family == 'Darwin'
     - role: linux
