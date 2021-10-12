@@ -7,9 +7,13 @@ I manage my dotfiles with a tool called Chezmoi. This tool piggy backs off of gi
 
 ## Installation
 To setup a new machine, run
-```sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply samcat116```
+```console
+$ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply samcat116
+```
 This will install Chezmoi and pull in and configure everything.
 
 To install this config on a short lived machine (aka don't keep Chezmoi around after everything is configured), run 
-```sh -c "$(curl -fsLS git.io/chezmoi)" -- init --one-shot samcat116```
+```console
+$ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --one-shot samcat116
+```
 
