@@ -1,3 +1,7 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/bin/bash
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
 tap "homebrew/bundle"
 tap "homebrew/core"
 tap "romkatv/powerlevel10k"
@@ -26,3 +30,5 @@ brew "thefuck"
 brew "tmux"
 brew "tree"
 brew "yarn"
+EOF
+{{ end -}}
