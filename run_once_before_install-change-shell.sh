@@ -4,7 +4,7 @@ if [ ! -f ~/.zshrc ] ; then
 	if [ -f /etc/lsb-release ] ; then
 		sudo apt install zsh -y
 	elif [ -f /etc/redhat-release ]; then
-		sudo yum install zsh git util-linux-use -y
+		sudo yum install zsh git util-linux-user -y
 	fi
 	echo "Changing default shell for $USER"
 	chsh -s $(which zsh)
