@@ -1,7 +1,7 @@
 #!/bin/sh
 if [ $SHELL != "/bin/zsh" ]   ; then
 	echo "ZSH not found, installing..."
-	if [ -f /etc/lsb-release ] ; then
+	if [ -f /etc/lsb-release  ] || [ -f /etc/os-release ]; then
 		sudo apt install zsh -y
 	elif [ -f /etc/redhat-release ]; then
 		sudo yum install zsh git util-linux-user -y
