@@ -1,5 +1,5 @@
 #!/bin/sh
-if [ ! -f ~/.zshrc ] ; then
+if $SHELL  ; then
 	echo "ZSH not found, installing..."
 	if [ -f /etc/lsb-release ] ; then
 		sudo apt install zsh -y
