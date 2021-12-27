@@ -37,10 +37,10 @@ EOF
 {{ else if eq .chezmoi.os "linux" -}}
 {{- if eq .chezmoi.osRelease.idLike "debian"}}
 #!/bin/bash
-sudo apt install 
+sudo apt install exa -y
 
 {{ else if eq .chezmoi.osRelease.idLike "rhel centos fedora"}}
-
+sudo yum install exa
 
 {{ end -}}
 {{ end -}}
