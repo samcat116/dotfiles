@@ -36,10 +36,14 @@ brew "gitui"
 EOF
 
 
-{{ else if eq .osid "linux-debian" }}
-sudo apt install exa -y
 
-{{  else if eq .osid "linux-centos" }}
-sudo yum install exa
+{{ else if eq .osid "linux-centos" }}
+#!/bin/sh
+sudo yum install exa -y
+
+
+{{ else if eq .osid "linux-debian" }}
+#!/bin/sh
+sudo apt install exa -y
 
 {{ end }}
