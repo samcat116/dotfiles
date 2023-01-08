@@ -2,9 +2,18 @@
 if [ $SHELL != "/bin/zsh" ]   ; then
 	echo "ZSH not found, installing..."
 	if [ -f /etc/lsb-release  ] || [ -f /etc/os-release ]; then
-		sudo apt install zsh -y
+		if ["$EUID" -ne 0]; then
+			apt install zsh -y
+		elif
+			sudo apt install zsh -y
+		fi	
 	elif [ -f /etc/redhat-release ]; then
-		sudo yum install zsh git util-linux-user -y
+		if ["$EUID" -ne 0]; then
+			yum install zsh git util-linux-user -y
+		elif
+			sudo yum install zsh git util-linux-user -y
+		fi	
+		
 	fi
 	echo "Changing default shell for $USER"
 	chsh -s $(which zsh)
