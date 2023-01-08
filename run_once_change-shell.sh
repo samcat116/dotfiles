@@ -4,13 +4,13 @@ if [ $SHELL != "/bin/zsh" ]   ; then
 	if [ -f /etc/lsb-release  ] || [ -f /etc/os-release ]; then
 		if ["$EUID" -ne 0]; then
 			apt install zsh -y
-		elif
+		else
 			sudo apt install zsh -y
 		fi	
 	elif [ -f /etc/redhat-release ]; then
 		if ["$EUID" -ne 0]; then
 			yum install zsh git util-linux-user -y
-		elif
+		else
 			sudo yum install zsh git util-linux-user -y
 		fi	
 		
