@@ -15,7 +15,7 @@ if [ $SHELL != "/bin/zsh" ]   ; then
 		fi	
 	fi
 	echo "Changing default shell for $USER"
-	chsh -s $(which zsh)
+	sudo chsh -s $(which zsh)
 	exec zsh
 	echo "Installing Oh-My-Zsh"
 	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
