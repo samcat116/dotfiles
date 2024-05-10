@@ -19,10 +19,6 @@ if [[ $SHELL != "/bin/zsh" ]]   ; then
 	echo "Installing PowerLevel10k"
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 	echo "Changing default shell for $USER"
-	if [ "$EUID" -ne 0 ]; then
-			sudo chsh -s $(which zsh)
-		else
-			chsh -s $(which zsh)
-		fi
+	chsh -s $(which zsh)
 	exec zsh
 fi
