@@ -2,13 +2,13 @@
 if [ $SHELL != "/bin/zsh" ]   ; then
 	echo "ZSH not found, installing..."
 	if [ -f /etc/lsb-release ]; then
-		if ["$EUID" -ne 0]; then
+		if [ "$EUID" -ne 0 ]; then
 			apt install zsh -y
 		else
 			sudo apt install zsh -y
 		fi	
 	elif [ -f /etc/redhat-release ]; then
-		if ["$EUID" -ne 0]; then
+		if [ "$EUID" -ne 0 ]; then
 			yum install zsh git util-linux-user -y
 		else
 			sudo yum install zsh git util-linux-user -y
