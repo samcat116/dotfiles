@@ -1,31 +1,28 @@
-#!/bin/sh
-if [ $SHELL != "/bin/zsh" ]   ; then
+#!/bin/bash
+if [[ $SHELL != "/bin/zsh" ]]   ; then
 	echo "ZSH not found, installing..."
 	if [ -f /etc/lsb-release ]; then
 		if [ "$EUID" -ne 0 ]; then
-			apt install zsh -y
-		else
 			sudo apt install zsh -y
+		else
+			apt install zsh -y
 		fi	
 	elif [ -f /etc/redhat-release ]; then
 		if [ "$EUID" -ne 0 ]; then
-			yum install zsh git util-linux-user -y
-		else
 			sudo yum install zsh git util-linux-user -y
+		else
+			yum install zsh git util-linux-user -y
 		fi	
 	fi
-	echo "Changing default shell for $USER"
-	if [ "$EUID" -ne 0 ]; then
-			chsh -s $(which zsh)
-		else
-			sudo chsh -s $(which zsh)
-		fi
-	exec zsh
 	echo "Installing Oh-My-Zsh"
-	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 	echo "Installing PowerLevel10k"
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
-	echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
-	source ~/.zshrc
-	source ~/.p10k.zsh
+	echo "Changing default shell for $USER"
+	if [ "$EUID" -ne 0 ]; then
+			sudo chsh -s $(which zsh)
+		else
+			chsh -s $(which zsh)
+		fi
+	exec zsh
 fi
